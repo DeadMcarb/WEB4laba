@@ -8,44 +8,43 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
-        <title>users</title>
+        <title>restorers</title>
     </h:head>
 
     <h:body>
         <h:form id="form">
-            <center><h:commandButton action="restorer.xhtml?faces-redirect=true" value="Restorers table" styleClass="btn btn-success btnSpace" /></center>
 
-            <center><h:commandButton action="add_user.xhtml?faces-redirect=true" value="Add New user" styleClass="btn btn-success btnSpace" /></center>
+            <center><h:commandButton action="add_restorer.xhtml?faces-redirect=true" value="Add New restorer" styleClass="btn btn-success btnSpace" /></center>
 
 
             <div class="table-container">
-                <p:dataTable value="#{userBean.users}" var="user" stripedRows="true" rowHover="true" id="table"
+                <p:dataTable value="#{restorerBean.restorers}" var="restorer" stripedRows="true" rowHover="true" id="table"
                              style="min-width: 600px;">
                     <p:column headerText="№" styleClass="narrow-column">
-                        #{user.id}
+                        #{restorer.id}
                     </p:column>
-                    <p:column headerText="name" styleClass="medium-column">
-                        #{user.name}
+                    <p:column headerText="firstName" styleClass="medium-column">
+                        #{restorer.firstName}
                     </p:column>
 
-                    <p:column headerText="originaly" styleClass="medium-column">
-                        #{user.password}
+                    <p:column headerText="secondName" styleClass="medium-column">
+                        #{restorer.secondName}
                     </p:column>
-                    <p:column headerText="roomId" styleClass="medium-column">
-                        #{user.roles}
+                    <p:column headerText="phoneNumber" styleClass="medium-column">
+                        #{restorer.phoneNumber}
                     </p:column>
-                    <p:column headerText="description" styleClass="medium-column">
-                        #{user.email}
+                    <p:column headerText="email" styleClass="medium-column">
+                        #{restorer.email}
                     </p:column>
 
                     <p:column headerText="Delete" styleClass="narrow-column">
-                        <p:commandButton value="Delete" action="#{userBean.delete(user.id)}"
+                        <p:commandButton value="Delete" action="#{restorerBean.delete(restorer.id)}"
                                          styleClass="ui-button-danger"
                                          update="form"/>
                     </p:column>
 
                     <p:column headerText="Edit" styleClass="narrow-column">
-                        <p:commandButton value="Edit" action="#{userBean.editById(user.id)}"
+                        <p:commandButton value="Edit" action="#{restorerBean.editById(restorer.id)}"
                                          styleClass="ui-button-info"
                                          update="form"/>
                     </p:column>

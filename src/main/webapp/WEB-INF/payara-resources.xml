@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 6.2023 Resource Definitions//EN" " ">
+<!--
+    Заповнити дані - див.коментарі
+-->
+<resources>
+    <!-- ім'я пула (замінити poolname), наприклад java:app/db_pool-->
+    <jdbc-connection-pool allow-non-component-callers="false" associate-with-thread="false"
+                          connection-creation-retry-attempts="0" connection-creation-retry-interval-in-seconds="10"
+                          connection-leak-reclaim="false" connection-leak-timeout-in-seconds="0"
+                          connection-validation-method="auto-commit"
+                          datasource-classname="com.mysql.cj.jdbc.MysqlDataSource"
+                          fail-all-connections="false" idle-timeout-in-seconds="300"
+                          is-connection-validation-required="false" is-isolation-level-guaranteed="true"
+                          lazy-connection-association="false" lazy-connection-enlistment="false"
+                          match-connections="false" max-connection-usage-count="0" max-pool-size="32"
+                          max-wait-time-in-millis="60000"
+                          name="museumpool"
+                          non-transactional-connections="false" pool-resize-quantity="2"
+                          res-type="javax.sql.DataSource"
+                          statement-timeout-in-seconds="-1" steady-pool-size="8"
+                          validate-atmost-once-period-in-seconds="0" wrap-jdbc-objects="false">
+
+        <!-- ім'я користувача - логін к БД -->
+        <property name="User" value="student"/>
+        <!-- Пароль к БД -->
+        <property name="Password" value="student"/>
+        <!-- URL БД - в кінці ім'я БД -->
+        <property name="URL" value="jdbc:mysql://localhost:3306/museumdb"/>
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+
+    </jdbc-connection-pool>
+    <!-- JNDI ім'я ресурса та ім'я пула (замінити resourcename та poolname)-->
+    <jdbc-resource enabled="true" jndi-name="java:app/jdbc/museumdb" object-type="user" pool-name="museumpool"/>
+</resources>
+
+
+<!--<resources>-->
+<!--&lt;!&ndash; Конфигурация JDBC Connection Pool &ndash;&gt;-->
+<!--<jdbc-connection-pool name="MyPool"-->
+<!--                      res-type="javax.sql.DataSource"-->
+<!--                      datasource-classname="com.mysql.cj.jdbc.MysqlDataSource"-->
+<!--                      pool-resize-quantity="2"-->
+<!--                      max-pool-size="20"-->
+<!--                      steady-pool-size="5"-->
+<!--                      idle-timeout-in-seconds="300">-->
+<!--    <property name="URL" value="jdbc:mysql://localhost:3306/my_database"/>-->
+<!--    <property name="User" value="my_user"/>-->
+<!--    <property name="Password" value="my_password"/>-->
+<!--    <property name="serverTimezone" value="UTC"/>-->
+<!--    <property name="useSSL" value="false"/>-->
+<!--    <property name="characterEncoding" value="UTF-8"/>-->
+<!--</jdbc-connection-pool>-->
+
+<!--&lt;!&ndash; JDBC Resource &ndash;&gt;-->
+<!--<jdbc-resource pool-name="MyPool" jndi-name="jdbc/myDatasource"/>-->
+<!--</resources>-->

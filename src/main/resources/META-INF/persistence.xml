@@ -3,7 +3,36 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
              version="3.2">
-  <persistence-unit name="default">
+    <persistence-unit name="default">
+<jta-data-source>
+    java:app/jdbc/museumdb
+</jta-data-source>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/museumdb"/>
+            <property name="javax.persistence.jdbc.user" value="student"/>
+            <property name="javax.persistence.jdbc.password" value="student"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        </properties>
+    </persistence-unit>
 
-  </persistence-unit>
+
 </persistence>
+
+
+
+<!--        <?xml version="1.0" encoding="UTF-8"?>-->
+<!--<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">-->
+<!--<persistence-unit name="myPU" transaction-type="JTA">-->
+<!--    <jta-data-source>jdbc/myDatasource</jta-data-source>-->
+<!--    <class>com.example.entity.MyEntity</class> &lt;!&ndash; Укажите классы сущностей &ndash;&gt;-->
+<!--    <properties>-->
+<!--        &lt;!&ndash; Драйвер JDBC &ndash;&gt;-->
+<!--        <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>-->
+
+<!--        &lt;!&ndash; Настройки для логирования и отладки &ndash;&gt;-->
+<!--        <property name="eclipselink.logging.level" value="FINE"/>-->
+<!--        <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>-->
+<!--        <property name="eclipselink.ddl-generation.output-mode" value="database"/>-->
+<!--    </properties>-->
+<!--</persistence-unit>-->
+<!--</persistence>-->
